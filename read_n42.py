@@ -1,3 +1,15 @@
+"""
+Description:
+This file was developed for converting N42 NIST files to CSV format, specifically tailored for gamma-ray spectrometry spectra obtained with an H3D M400 CZT detector.
+
+The script extracts PUR, INDIV, and SINGLE spectra from N42 files and adds them to separate columns in the CSV. Python 3 and libraries "os", "pandas", "numpy", and "BeautifulSoup" are required.
+
+Execution is possible via Terminal/CMD or Python editors like VSCode or Sublime Text.
+
+Author: João M. F. Lopes
+Contact: lopes.joaomarcos@uel.br
+"""
+
 import os
 import numpy as np
 import pandas as pd
@@ -12,7 +24,7 @@ for filename in os.listdir(folder_path):
         # Construct the full path to the file
         filepath = os.path.join(folder_path, filename)
         
-        # Extract the spectroscopic data from each n42 file
+        # Extract the three spectra from each n42 file
         df = pd.DataFrame()
         with open(filepath) as f:
             xml = f.read()
